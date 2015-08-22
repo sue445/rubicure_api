@@ -11,14 +11,14 @@ class App < Sinatra::Base
 
   get "/" do
     @girls = Precure.all_stars
-    @series = Precure
+    @series = Precure.map(&:itself)
     slim :index
   end
 
   get "/series.json" do
     series = Precure
 
-    json series
+    series
   end
 
   get "/series/:name.json" do
