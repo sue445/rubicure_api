@@ -1,5 +1,4 @@
 require "./app"
-require "newrelic_rpm"
 require "rollbar"
 
 Rollbar.configure do |config|
@@ -10,7 +9,5 @@ Rollbar.configure do |config|
     "Sinatra::NotFound" => "ignore",
   )
 end
-
-NewRelic::Agent.after_fork(force_reconnect: true)
 
 run App
