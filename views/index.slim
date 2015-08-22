@@ -1,0 +1,13 @@
+h1 シリーズ一覧
+
+table.table
+  - @series.each do |series|
+    tr
+      td = series.title
+
+h1 プリキュア一覧
+
+table.table
+  - @girls.each do |girl|
+    tr
+      td = girl.precure_name
