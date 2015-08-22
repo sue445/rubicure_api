@@ -24,7 +24,5 @@ open http://localhost:3000/
 ```sh
 heroku addons:create papertrail
 heroku addons:create rollbar
-heroku addons:create newrelic
 heroku config:add ROLLBAR_ACCESS_TOKEN=XXXXXXXXXXXXXXX
-heroku config:add NEW_RELIC_LICENSE_KEY=XXXXXXXXXXXXXXXX
 ```

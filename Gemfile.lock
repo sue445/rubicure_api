@@ -17,7 +17,6 @@ GEM
     json (1.8.3)
     minitest (5.8.0)
     multi_json (1.11.2)
-    newrelic_rpm (3.13.0.299)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -60,7 +59,6 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   foreman
-  newrelic_rpm
   rollbar
   rubicure
   sinatra
