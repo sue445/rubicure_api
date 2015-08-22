@@ -35,4 +35,13 @@ class App < Sinatra::Base
 
     json girls
   end
+
+  get "/girls/:name.json" do
+    name = params[:name].to_sym
+    halt 404 unless Rubicure::Girl.valid?(name)
+
+    girl = Rubicure::Girl.find(name)
+
+    json girl
+  end
 end

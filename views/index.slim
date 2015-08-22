@@ -6,7 +6,7 @@ a href="/series.json"
 table.table
   thead
     tr
-      th name
+      th series_name
       th title
       th path
   tbody
@@ -24,6 +24,16 @@ a href="/girls.json"
   | /girls.json
 
 table.table
-  - @girls.each do |girl|
+  thead
     tr
-      td = girl.precure_name
+      th girl_name
+      th precure_name
+      th path
+  tbody
+    - @girls.each do |girl|
+      tr
+        td = girl.girl_name
+        td = girl.precure_name
+        td
+          a href="/girls/#{girl.girl_name}.json"
+            = "/girls/#{girl.girl_name}.json"
