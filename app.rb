@@ -29,4 +29,10 @@ class App < Sinatra::Base
 
     json series
   end
+
+  get "/girls.json" do
+    girls = Precure.all_stars
+
+    json girls
+  end
 end
