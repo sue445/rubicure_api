@@ -74,7 +74,7 @@ GEM
       rspec (>= 2.13, < 4)
       unparser
     rspec-support (3.3.0)
-    rubicure (0.2.6)
+    rubicure (0.2.8.1)
       activesupport (>= 4.0.0)
       hashie (>= 2.0.5)
       sengiri_yaml (>= 0.0.2)

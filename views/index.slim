@@ -12,11 +12,11 @@ table.table
   tbody
     - @series.each do |series|
       tr
-        td = series[:name]
-        td = series[:title]
+        td = series.series_name
+        td = series.title
         td
-          a href="/series/#{series[:name]}.json"
-            = "/series/#{series[:name]}.json"
+          a href="/series/#{series.series_name}.json"
+            = "/series/#{series.series_name}.json"
 
 h1 プリキュア一覧
 
