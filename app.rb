@@ -14,4 +14,23 @@ class App < Sinatra::Base
     @series = Precure
     slim :index
   end
+
+  get "/series.json" do
+    series = Rubicure::Series.uniq_names.map do |name|
+      s = Rubicure::Series.find(name)
+      {
+        name:         name,
+        title:        s.title,
+        started_date: s.started_date,
+        ended_date:   s.try(:ended_date),
+      }
+    end
+
+    json series
+  end
+
+  get "/series/:name.json" do
+    series = Rubicure::Series.find(params[:name])
+    json series
+  end
 end
