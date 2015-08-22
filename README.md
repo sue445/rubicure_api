@@ -1,4 +1,5 @@
 # RubicureAPI
+API server for [Rubicure](https://github.com/sue445/rubicure)
 
 ## Requirements
 * Ruby 2.2.3
