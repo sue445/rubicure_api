@@ -11,12 +11,25 @@ class App < Sinatra::Base
 
   get "/" do
     @girls = Precure.all_stars
-    @series = Precure
+    @series = Rubicure::Series.uniq_names.map { |name| series_with_name(name) }
     slim :index
   end
 
   get "/series.json" do
-    series = Rubicure::Series.uniq_names.map do |name|
+    series = Rubicure::Series.uniq_names.map { |name| series_with_name(name) }
+
+    json series
+  end
+
+  get "/series/:name.json" do
+    name = params[:name].to_sym
+    halt 404 unless Rubicure::Series.valid?(name)
+
+    json series_with_name(name)
+  end
+
+  helpers do
+    def series_with_name(name)
       s = Rubicure::Series.find(name)
       {
         name:         name,
@@ -25,12 +38,5 @@ class App < Sinatra::Base
         ended_date:   s.try(:ended_date),
       }
     end
-
-    json series
-  end
-
-  get "/series/:name.json" do
-    series = Rubicure::Series.find(params[:name])
-    json series
   end
 end
