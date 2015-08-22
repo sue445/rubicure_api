@@ -1,0 +1,15 @@
+# https://circleci.com/docs/config-sample
+machine:
+  ruby:
+    version: 2.2.3
+
+## Customize test commands
+test:
+  override:
+    - echo "do nothing"
+
+deployment:
+  production:
+    branch: master
+    heroku:
+      appname: rubicure
