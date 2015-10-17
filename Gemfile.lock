@@ -17,14 +17,13 @@ GEM
     json (1.8.3)
     minitest (5.8.1)
     multi_json (1.11.2)
-    oj (2.12.14)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
-    rollbar (2.3.0)
-      oj (~> 2.12.14)
+    rollbar (2.4.0)
+      multi_json
     rubicure (0.2.9)
       activesupport (>= 4.0.0)
       hashie (>= 2.0.5)
