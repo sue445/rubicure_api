@@ -7,7 +7,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    backports (3.6.6)
+    backports (3.6.7)
     daemons (1.2.3)
     eventmachine (1.0.8)
     foreman (0.78.0)
@@ -22,7 +22,7 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
-    rollbar (2.5.1)
+    rollbar (2.5.2)
       multi_json
     rubicure (0.2.9)
       activesupport (>= 4.0.0)
