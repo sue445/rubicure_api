@@ -10,7 +10,7 @@ class App < Sinatra::Base
   use Rollbar::Middleware::Sinatra
 
   get "/" do
-    @girls = Precure.all_stars
+    @girls = Precure.all_stars.sort_by(&:girl_name)
     @series = Precure.map(&:itself)
     slim :index
   end
@@ -30,7 +30,7 @@ class App < Sinatra::Base
   end
 
   get "/girls.json" do
-    girls = Precure.all_stars
+    girls = Precure.all_stars.sort_by(&:girl_name)
 
     json girls
   end
