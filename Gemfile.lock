@@ -9,7 +9,7 @@ GEM
       tzinfo (~> 1.1)
     backports (3.6.8)
     daemons (1.2.3)
-    eventmachine (1.0.9.1)
+    eventmachine (1.2.0.1)
     foreman (0.78.0)
       thor (~> 0.19.1)
     hashie (3.4.3)
@@ -24,7 +24,7 @@ GEM
       rack (>= 1.0)
     rollbar (2.8.3)
       multi_json
-    rubicure (0.4.0)
+    rubicure (0.4.1)
       activesupport (>= 4.0.0)
       hashie (>= 2.0.5)
       sengiri_yaml (>= 0.0.2)
