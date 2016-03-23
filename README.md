@@ -7,7 +7,7 @@ https://rubicure.herokuapp.com/
 [![Dependency Status](https://gemnasium.com/sue445/rubicure_api.svg)](https://gemnasium.com/sue445/rubicure_api)
 
 ## Requirements
-* Ruby 2.2.3
+* Ruby 2.3.0
 
 ## Setup
 ```sh
