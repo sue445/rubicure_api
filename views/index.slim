@@ -1,4 +1,4 @@
-h1 シリーズ一覧
+h1 List precure series
 
 a href="/series.json"
   | /series.json
@@ -18,7 +18,7 @@ table.table
           a href="/series/#{series.series_name}.json"
             = "/series/#{series.series_name}.json"
 
-h1 プリキュア一覧
+h1 List precure girls
 
 a href="/girls.json"
   | /girls.json
@@ -26,12 +26,14 @@ a href="/girls.json"
 table.table
   thead
     tr
+      th.number No
       th girl_name
       th precure_name
       th path
   tbody
-    - @girls.each do |girl|
+    - @girls.each_with_index do |girl, i|
       tr
+        td.number = i + 1
         td = girl.girl_name
         td = girl.precure_name
         td
