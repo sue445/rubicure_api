@@ -17,11 +17,13 @@ GEM
     json (1.8.3)
     minitest (5.8.4)
     multi_json (1.11.2)
+    power_assert (0.2.7)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    rake (11.1.2)
     rollbar (2.10.0)
       multi_json
     rubicure (0.4.4)
@@ -44,6 +46,8 @@ GEM
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
     temple (0.7.6)
+    test-unit (3.1.8)
+      power_assert
     thin (1.6.4)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0, >= 1.0.4)
@@ -60,11 +64,13 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   foreman
+  rake
   rollbar
   rubicure
   sinatra
   sinatra-contrib
   slim
+  test-unit
   thin
 
 BUNDLED WITH

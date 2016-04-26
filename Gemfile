@@ -12,4 +12,9 @@ gem "thin"
 
 group :development do
   gem "foreman"
+  gem "rake"
+end
+
+group :test do
+  gem "test-unit"
 end
