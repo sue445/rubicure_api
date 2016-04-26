@@ -30,7 +30,7 @@ GEM
       activesupport (>= 4.0.0)
       hashie (>= 2.0.5)
       sengiri_yaml (>= 0.0.2)
-    sengiri_yaml (0.0.2)
+    sengiri_yaml (0.0.3)
     sinatra (1.4.7)
       rack (~> 1.5)
       rack-protection (~> 1.4)
