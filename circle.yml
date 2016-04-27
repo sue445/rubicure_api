@@ -1,7 +1,11 @@
 # https://circleci.com/docs/config-sample
 machine:
   ruby:
-    version: 2.3.0
+    version: 2.3.1
+
+dependencies:
+  pre:
+    - gem update --system
 
 ## Customize test commands
 test:
