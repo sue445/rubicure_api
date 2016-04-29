@@ -6,6 +6,12 @@ require "active_support/all"
 require "rollbar/middleware/sinatra"
 require "rubicure"
 
+class Object
+  def to_pretty_json
+    JSON.pretty_generate(self)
+  end
+end
+
 class App < Sinatra::Base
   use Rollbar::Middleware::Sinatra
 
@@ -17,7 +23,11 @@ class App < Sinatra::Base
 
   get "/series.json" do
     content_type :json
-    "[" + Precure.map(&:to_json).join(",") + "]"
+
+    # convert to plain Hash
+    all_series = Precure.map{ |s| Hash[s] }
+
+    json all_series, @json_options
   end
 
   get "/series/:name.json" do
@@ -26,13 +36,15 @@ class App < Sinatra::Base
 
     series = Rubicure::Series.find(name)
 
-    json series
+    # convert to plain Hash
+    json Hash[series], @json_options
   end
 
   get "/girls.json" do
-    girls = Precure.all_stars
+    # convert to plain Hash
+    girls = Precure.all_stars.map{ |g| Hash[g] }
 
-    json girls
+    json girls, @json_options
   end
 
   get "/girls/:name.json" do
@@ -41,6 +53,12 @@ class App < Sinatra::Base
 
     girl = Rubicure::Girl.find(name)
 
-    json girl
+    # convert to plain Hash
+    json Hash[girl], @json_options
+  end
+
+  before do
+    @json_options = {}
+    @json_options[:json_encoder] = :to_pretty_json if params[:format] == "pretty"
   end
 end

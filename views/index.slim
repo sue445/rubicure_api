@@ -3,6 +3,11 @@ h1 List precure series
 a href="/series.json"
   | /series.json
 
+|&nbsp;(
+a href="/series.json?format=pretty"
+  | pretty format
+|)
+
 table.table
   thead
     tr
@@ -17,11 +22,20 @@ table.table
         td
           a href="/series/#{series.series_name}.json"
             = "/series/#{series.series_name}.json"
+          |&nbsp;(
+          a href="/series/#{series.series_name}.json?format=pretty"
+            | pretty format
+          |)
 
 h1 List precure girls
 
 a href="/girls.json"
   | /girls.json
+
+|&nbsp;(
+a href="/girls.json?format=pretty"
+  | pretty format
+|)
 
 table.table
   thead
@@ -39,3 +53,7 @@ table.table
         td
           a href="/girls/#{girl.girl_name}.json"
             = "/girls/#{girl.girl_name}.json"
+          |&nbsp;(
+          a href="/girls/#{girl.girl_name}.json?format=pretty"
+            | pretty format
+          |)

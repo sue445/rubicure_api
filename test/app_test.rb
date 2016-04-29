@@ -21,8 +21,14 @@ class AppTest < Test::Unit::TestCase
     get "/series.json"
     assert { last_response.ok? }
 
-    series = JSON.parse(last_response.body)
-    assert { series.count == Rubicure::Series.uniq_names.count }
+    all_series = JSON.parse(last_response.body)
+    assert { all_series.count == Rubicure::Series.uniq_names.count }
+
+    first = all_series.first
+
+    %w(series_name title started_date ended_date girls).each do |key|
+      assert { first.key?(key) }
+    end
   end
 
   Rubicure::Series.uniq_names.each do |series_name|
