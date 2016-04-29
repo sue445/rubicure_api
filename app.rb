@@ -22,8 +22,6 @@ class App < Sinatra::Base
   end
 
   get "/series.json" do
-    content_type :json
-
     # convert to plain Hash
     all_series = Precure.map{ |s| Hash[s] }
 
