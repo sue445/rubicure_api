@@ -11,12 +11,14 @@ a href="/series.json?format=pretty"
 table.table
   thead
     tr
+      th.number No
       th series_name
       th title
       th path
   tbody
-    - @series.each do |series|
+    - @series.each_with_index do |series, i|
       tr
+        td.number = i + 1
         td = series.series_name
         td = series.title
         td
