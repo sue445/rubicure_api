@@ -28,6 +28,7 @@
 # The default is "development".
 #
 # environment 'production'
+environment ENV["RACK_ENV"] || "development"
 
 # Daemonize the server into the background. Highly suggest that
 # this be combined with "pidfile" and "stdout_redirect".
@@ -160,7 +161,7 @@
 # Preload the application before starting the workers; this conflicts with
 # phased restart feature. (off by default)
 
-# preload_app!
+preload_app!
 
 # Additional text to display in process listing
 #
@@ -195,3 +196,5 @@
 # activate_control_app 'unix:///var/run/pumactl.sock'
 # activate_control_app 'unix:///var/run/pumactl.sock', { auth_token: '12345' }
 # activate_control_app 'unix:///var/run/pumactl.sock', { no_token: true }
+
+port ENV["PORT"] || 3000
