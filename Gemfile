@@ -10,7 +10,6 @@ gem "rubicure"
 gem "sinatra"
 gem "sinatra-contrib"
 gem "slim"
-gem "thin"
 
 group :development do
   gem "foreman"
