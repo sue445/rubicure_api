@@ -26,3 +26,6 @@ heroku addons:create papertrail
 heroku addons:create rollbar
 heroku config:add ROLLBAR_ACCESS_TOKEN=XXXXXXXXXXXXXXX
 ```
+
+## Heroku deploy
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
