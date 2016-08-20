@@ -59,14 +59,42 @@ class App < Sinatra::Base
     slim :repl
   end
 
-  post "/repl/peform" do
-    stream do |out|
-      out << params[:query]
+  post "/repl/perform" do
+    begin
+      stream do |out|
+        stdout, _ =
+          capture_stdout do
+            eval(params[:query]) unless params[:query].blank?
+          end
+        out << stdout
+      end
     end
   end
 
   before do
     @json_options = {}
     @json_options[:json_encoder] = :to_pretty_json if params[:format] == "pretty"
+  end
+
+  helpers do
+    def capture_stdout
+      stdout = StringIO.new
+      stderr = StringIO.new
+      $stdout = stdout
+      $stderr = stderr
+
+      Rubicure::Girl.class_eval do
+        define_method :io do
+          stdout
+        end
+      end
+
+      yield
+
+      [stdout.string, stderr.string]
+    ensure
+      $stdout = STDOUT
+      $stderr = STDERR
+    end
   end
 end
