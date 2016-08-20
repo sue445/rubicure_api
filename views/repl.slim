@@ -5,11 +5,15 @@ form
 
   a#perform.btn.btn-default role="button" Run
 
+  img#loading src="/img/loading.gif" style="display:none"
+
   pre#result
 
   javascript:
     $(function () {
       $("#perform").click(function () {
+        $("#loading").show();
+
         var query = $("#query").val();
         $.ajax({
           type: "POST",
@@ -20,6 +24,8 @@ form
           dataType: "text"
         }).done(function (response) {
           $("#result").text(response);
+        }).always(function () {
+          $("#loading").hide();
         });
       });
     });
