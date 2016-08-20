@@ -1,31 +1,33 @@
 h1 REPL Form
 
-form
-  textarea#query.form-control rows="10"
+.row
+  .col-md-6
+    form
+      textarea#query.form-control rows="10"
 
-  a#perform.btn.btn-default role="button" Run
+      a#perform.btn.btn-default role="button" Run
+      img#loading src="/img/loading.gif" style="display:none"
 
-  img#loading src="/img/loading.gif" style="display:none"
+  .col-md-6
+    pre#result
 
-  pre#result
+javascript:
+  $(function () {
+    $("#perform").click(function () {
+      $("#loading").show();
 
-  javascript:
-    $(function () {
-      $("#perform").click(function () {
-        $("#loading").show();
-
-        var query = $("#query").val();
-        $.ajax({
-          type: "POST",
-          url: "/repl/perform",
-          data: {
-            query: query
-          },
-          dataType: "text"
-        }).done(function (response) {
-          $("#result").text(response);
-        }).always(function () {
-          $("#loading").hide();
-        });
+      var query = $("#query").val();
+      $.ajax({
+        type: "POST",
+        url: "/repl/perform",
+        data: {
+          query: query
+        },
+        dataType: "text"
+      }).done(function (response) {
+        $("#result").text(response);
+      }).always(function () {
+        $("#loading").hide();
       });
     });
+  });
