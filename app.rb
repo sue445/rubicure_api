@@ -55,6 +55,10 @@ class App < Sinatra::Base
     json Hash[girl], @json_options
   end
 
+  get "/repl" do
+    slim :repl
+  end
+
   before do
     @json_options = {}
     @json_options[:json_encoder] = :to_pretty_json if params[:format] == "pretty"

@@ -1,0 +1,16 @@
+h1 REPL Form
+
+form
+  textarea#query.form-control rows="10"
+
+  a#perform.btn.btn-default role="button" Run
+
+  #result
+
+  javascript:
+    $(function () {
+      $("#perform").click(function () {
+        var query = $("#query").val();
+        $("#result").html(query);
+      });
+    });
