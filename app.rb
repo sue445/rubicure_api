@@ -62,9 +62,14 @@ class App < Sinatra::Base
   post "/repl/perform" do
     begin
       stream do |out|
-        capture_stdout do |stdout|
+        capture_stdout do |stdout, stderr|
           eval(params[:query]) unless params[:query].blank?
           out << stdout.string
+
+          unless stderr.string.blank?
+            out << "\n"
+            out << stderr.string
+          end
         end
       end
     end
@@ -88,7 +93,7 @@ class App < Sinatra::Base
         end
       end
 
-      yield stdout
+      yield stdout, stderr
     ensure
       $stdout = STDOUT
       $stderr = STDERR
