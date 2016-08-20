@@ -59,6 +59,12 @@ class App < Sinatra::Base
     slim :repl
   end
 
+  post "/repl/peform" do
+    stream do |out|
+      out << params[:query]
+    end
+  end
+
   before do
     @json_options = {}
     @json_options[:json_encoder] = :to_pretty_json if params[:format] == "pretty"

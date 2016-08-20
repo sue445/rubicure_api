@@ -5,12 +5,21 @@ form
 
   a#perform.btn.btn-default role="button" Run
 
-  #result
+  pre#result
 
   javascript:
     $(function () {
       $("#perform").click(function () {
         var query = $("#query").val();
+        $.ajax({
+          type: "POST",
+          url: "/repl/perform",
+          data: {
+            query: query
+          },
+          dataType: "html"
+        });
+
         $("#result").html(query);
       });
     });
