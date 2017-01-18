@@ -55,8 +55,48 @@ class App < Sinatra::Base
     json Hash[girl], @json_options
   end
 
+  get "/repl" do
+    slim :repl
+  end
+
+  post "/repl/perform" do
+    begin
+      stream do |out|
+        capture_stdout do |stdout, stderr|
+          eval(params[:query]) unless params[:query].blank?
+          out << stdout.string
+
+          unless stderr.string.blank?
+            out << "\n"
+            out << stderr.string
+          end
+        end
+      end
+    end
+  end
+
   before do
     @json_options = {}
     @json_options[:json_encoder] = :to_pretty_json if params[:format] == "pretty"
+  end
+
+  helpers do
+    def capture_stdout
+      stdout = StringIO.new
+      stderr = StringIO.new
+      $stdout = stdout
+      $stderr = stderr
+
+      Rubicure::Girl.class_eval do
+        define_method :io do
+          stdout
+        end
+      end
+
+      yield stdout, stderr
+    ensure
+      $stdout = STDOUT
+      $stderr = STDERR
+    end
   end
 end
