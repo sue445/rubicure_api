@@ -43,10 +43,10 @@ class AppTest < Test::Unit::TestCase
     assert { last_response.ok? }
 
     girls = JSON.parse(last_response.body)
-    assert { girls.count == Precure.all_stars.count }
+    assert { girls.count == Precure.all.count }
   end
 
-  Precure.all_stars.each do |girl|
+  Precure.all.each do |girl|
     test "GET /girls/#{girl.girl_name}.json" do
       get "/girls/#{girl.girl_name}.json"
       assert { last_response.ok? }

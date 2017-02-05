@@ -6,7 +6,7 @@ gem "activesupport"
 gem "jemalloc", require: false
 gem "puma"
 gem "rollbar"
-gem "rubicure"
+gem "rubicure", "~> 1.0.0.pre3"
 gem "sinatra"
 gem "sinatra-contrib"
 gem "slim"
