@@ -3,6 +3,7 @@ source "https://rubygems.org"
 ruby "2.4.0"
 
 gem "activesupport"
+gem "icalendar"
 gem "jemalloc", require: false
 gem "puma"
 gem "rollbar"
@@ -18,4 +19,5 @@ end
 
 group :test do
   gem "test-unit"
+  gem "timecop"
 end

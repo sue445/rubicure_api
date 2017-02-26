@@ -4,6 +4,7 @@ require_relative "../app"
 require "test/unit"
 require "rack/test"
 require "json"
+require "timecop"
 
 class AppTest < Test::Unit::TestCase
   include Rack::Test::Methods
@@ -50,6 +51,17 @@ class AppTest < Test::Unit::TestCase
     test "GET /girls/#{girl.girl_name}.json" do
       get "/girls/#{girl.girl_name}.json"
       assert { last_response.ok? }
+    end
+  end
+
+  test "GET /girls/birthday.ics" do
+    Timecop.freeze(Date.parse("2017-02-26")) do
+      get "/girls/birthday.ics"
+      assert { last_response.ok? }
+
+      ical = last_response.body
+      assert { ical.include?("DTSTART;VALUE=DATE:20170404") }
+      assert { ical.include?("SUMMARY:キュアホワイト（雪城ほのか）の誕生日") }
     end
   end
 end

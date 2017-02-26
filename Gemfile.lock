@@ -12,6 +12,7 @@ GEM
       thor (~> 0.19.1)
     hashie (3.5.5)
     i18n (0.8.1)
+    icalendar (2.4.1)
     jemalloc (1.0.1)
     minitest (5.10.1)
     multi_json (1.12.1)
@@ -50,6 +51,7 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.6)
+    timecop (0.8.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
 
@@ -59,6 +61,7 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   foreman
+  icalendar
   jemalloc
   puma
   rake
@@ -68,6 +71,10 @@ DEPENDENCIES
   sinatra-contrib
   slim
   test-unit
+  timecop
+
+RUBY VERSION
+   ruby 2.4.0p0
 
 BUNDLED WITH
    1.14.3
