@@ -6,7 +6,6 @@ require "active_support/all"
 require "rollbar/middleware/sinatra"
 require "rubicure"
 require "icalendar"
-require "icalendar/tzinfo"
 require "date"
 
 class Object
