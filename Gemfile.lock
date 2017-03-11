@@ -17,7 +17,7 @@ GEM
     minitest (5.10.1)
     multi_json (1.12.1)
     power_assert (1.0.1)
-    puma (3.7.1)
+    puma (3.8.1)
     rack (1.6.5)
     rack-protection (1.5.3)
       rack
