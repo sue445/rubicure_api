@@ -26,7 +26,7 @@ GEM
     rake (12.0.0)
     rollbar (2.14.0)
       multi_json
-    rubicure (1.0.0.pre4)
+    rubicure (1.0.0)
       activesupport (>= 5.0.0)
       hashie (>= 2.0.5)
       sengiri_yaml (>= 0.0.2)
@@ -66,12 +66,15 @@ DEPENDENCIES
   puma
   rake
   rollbar
-  rubicure (~> 1.0.0.pre3)
+  rubicure
   sinatra
   sinatra-contrib
   slim
   test-unit
   timecop
+
+RUBY VERSION
+   ruby 2.4.0p0
 
 BUNDLED WITH
    1.14.3
