@@ -7,7 +7,7 @@ gem "icalendar"
 gem "jemalloc", require: false
 gem "puma"
 gem "rollbar"
-gem "rubicure", "~> 1.0.0.pre3"
+gem "rubicure"
 gem "sinatra"
 gem "sinatra-contrib"
 gem "slim"
