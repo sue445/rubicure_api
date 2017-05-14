@@ -22,6 +22,8 @@ GEM
     rack (2.0.2)
     rack-protection (2.0.0)
       rack
+    rack-test (0.6.3)
+      rack (>= 1.0)
     rake (12.0.0)
     rollbar (2.14.1)
       multi_json
@@ -64,6 +66,7 @@ DEPENDENCIES
   icalendar
   jemalloc
   puma
+  rack-test
   rake
   rollbar
   rubicure
@@ -73,5 +76,8 @@ DEPENDENCIES
   test-unit
   timecop
 
+RUBY VERSION
+   ruby 2.4.1p111
+
 BUNDLED WITH
-   1.14.3
+   1.14.6
