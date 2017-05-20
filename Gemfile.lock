@@ -19,7 +19,7 @@ GEM
     mustermann (1.0.0)
     power_assert (1.0.2)
     puma (3.8.2)
-    rack (2.0.2)
+    rack (2.0.3)
     rack-protection (2.0.0)
       rack
     rack-test (0.6.3)
@@ -75,9 +75,6 @@ DEPENDENCIES
   slim
   test-unit
   timecop
-
-RUBY VERSION
-   ruby 2.4.1p111
 
 BUNDLED WITH
    1.14.6
