@@ -17,6 +17,8 @@ end
 class App < Sinatra::Base
   use Rollbar::Middleware::Sinatra
 
+  set :json_content_type, "application/json; charset=UTF-8"
+
   configure do
     mime_type :ics, "text/calendar"
   end
