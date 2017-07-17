@@ -66,3 +66,18 @@ h2
 
 a href="/girls/birthday.ics"
   | /girls/birthday.ics
+
+h2 Latest birthdays
+
+table.table.table-striped.table-hover
+  thead
+    tr
+      th.text-right Date
+      th Precure name
+      th Human name
+  tbody
+    - @date_girls.each do |date, girl|
+      tr class = week_class(date)
+        td.text-right = date.strftime("%Y/%m/%d(%a)")
+        td = girl.precure_name
+        td = girl.human_name

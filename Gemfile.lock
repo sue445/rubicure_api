@@ -11,6 +11,7 @@ GEM
     foreman (0.84.0)
       thor (~> 0.19.1)
     hashie (3.5.6)
+    holiday_jp (0.5.1)
     i18n (0.8.6)
     icalendar (2.4.1)
     jemalloc (1.0.1)
@@ -63,6 +64,7 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   foreman
+  holiday_jp
   icalendar
   jemalloc
   puma
@@ -75,6 +77,9 @@ DEPENDENCIES
   slim
   test-unit
   timecop
+
+RUBY VERSION
+   ruby 2.4.1p111
 
 BUNDLED WITH
    1.14.6
