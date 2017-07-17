@@ -7,6 +7,7 @@ require "rollbar/middleware/sinatra"
 require "rubicure"
 require "icalendar"
 require "date"
+require "holiday_jp"
 
 class Object
   def to_pretty_json
@@ -26,6 +27,10 @@ class App < Sinatra::Base
   get "/" do
     @girls = Precure.all
     @series = Precure.map(&:itself)
+
+    date_girls = girl_birthdays(Date.today.year, Date.today.year + 1)
+    @date_girls = date_girls.select { |date, _| Date.today <= date && date <= Date.today + 90 }
+
     slim :index
   end
 
@@ -103,6 +108,18 @@ class App < Sinatra::Base
 
       cal.publish
       cal.to_ical
+    end
+
+    def week_class(time)
+      date = time.to_date
+
+      if HolidayJp.holiday?(date) || date.sunday?
+        # red
+        "danger"
+      elsif date.saturday?
+        # blue
+        "info"
+      end
     end
   end
 end
