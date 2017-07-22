@@ -15,7 +15,7 @@ GEM
     i18n (0.8.6)
     icalendar (2.4.1)
     jemalloc (1.0.1)
-    minitest (5.10.2)
+    minitest (5.10.3)
     multi_json (1.12.1)
     mustermann (1.0.0)
     power_assert (1.0.2)
@@ -28,7 +28,7 @@ GEM
     rake (12.0.0)
     rollbar (2.15.0)
       multi_json
-    rubicure (1.0.6)
+    rubicure (1.0.7)
       activesupport (>= 5.0.0)
       hashie (>= 2.0.5)
       sengiri_yaml (>= 0.0.2)
@@ -77,9 +77,6 @@ DEPENDENCIES
   slim
   test-unit
   timecop
-
-RUBY VERSION
-   ruby 2.4.1p111
 
 BUNDLED WITH
    1.14.6
