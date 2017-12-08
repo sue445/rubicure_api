@@ -1,0 +1,78 @@
+version: 2.0
+
+default: &default
+  docker:
+    - image: circleci/ruby:2.4.1-node
+      environment:
+        RACK_ENV: test
+  working_directory: ~/app
+
+jobs:
+  checkout_code:
+    <<: *default
+
+    steps:
+      - checkout
+      - save_cache:
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - ~/app
+
+  bundle_dependencies:
+    <<: *default
+
+    steps:
+      - restore_cache:
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          keys:
+            - v1-bundle-{{ .Environment.CIRCLE_BRANCH }}
+            - v1-bundle-master
+      - run: bundle install --path vendor/bundle
+      - run: bundle clean
+      - save_cache:
+          key: v1-bundle-{{ .Environment.CIRCLE_BRANCH }}
+          paths:
+            - ~/app/vendor/bundle
+
+  rspec:
+    <<: *default
+
+    steps:
+      - restore_cache:
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          key: v1-bundle-{{ .Environment.CIRCLE_BRANCH }}
+      - run: bundle --path vendor/bundle
+      - run: bundle exec rake test
+
+  deploy:
+    <<: *default
+
+    steps:
+      - restore_cache:
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+      - run: .circleci/heroku_setup.sh
+      - add_ssh_keys:
+          fingerprints:
+            - "b3:c5:19:97:09:2e:dd:7e:dd:9d:05:c3:8b:2e:9f:54"
+      - run: .circleci/heroku_deploy.sh
+
+workflows:
+  version: 2
+
+  build-and-deploy:
+    jobs:
+      - checkout_code
+      - bundle_dependencies:
+          requires:
+            - checkout_code
+      - rspec:
+          requires:
+            - bundle_dependencies
+      - deploy:
+          requires:
+            - rspec
+          filters:
+            branches:
+              only: master
