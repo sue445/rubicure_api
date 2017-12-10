@@ -14,12 +14,13 @@ gem "sinatra-contrib"
 gem "slim"
 
 group :development do
-  gem "foreman"
-  gem "rake"
+  gem "foreman", require: false
+  gem "onkcop", require: false
+  gem "rake", require: false
 end
 
 group :test do
-  gem "test-unit"
   gem "rack-test"
+  gem "test-unit"
   gem "timecop"
 end

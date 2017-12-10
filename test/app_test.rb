@@ -1,4 +1,4 @@
-ENV["RACK_ENV"] = 'test'
+ENV["RACK_ENV"] = "test"
 
 require_relative "../app"
 require "test/unit"
@@ -27,8 +27,8 @@ class AppTest < Test::Unit::TestCase
 
     first = all_series.first
 
-    %w(series_name title started_date ended_date girls).each do |key|
-      assert { first.key?(key) }
+    %w[series_name title started_date ended_date girls].each do |key|
+      assert { first.has_key?(key) }
     end
   end
 
