@@ -46,6 +46,17 @@ jobs:
       - run: bundle --path vendor/bundle
       - run: bundle exec rake test
 
+  rubocop:
+    <<: *default
+
+    steps:
+      - restore_cache:
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          key: v1-bundle-{{ .Environment.CIRCLE_BRANCH }}
+      - run: bundle --path vendor/bundle
+      - run: bundle exec rubocop
+
   deploy:
     <<: *default
 
@@ -70,9 +81,13 @@ workflows:
       - rspec:
           requires:
             - bundle_dependencies
+      - rubocop:
+          requires:
+            - bundle_dependencies
       - deploy:
           requires:
             - rspec
+            - rubocop
           filters:
             branches:
               only: master
