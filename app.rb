@@ -36,7 +36,7 @@ class App < Sinatra::Base
 
   get "/series.json" do
     # convert to plain Hash
-    all_series = Precure.map{ |s| Hash[s] }
+    all_series = Precure.map { |s| Hash[s] }
 
     json all_series, @json_options
   end
@@ -53,7 +53,7 @@ class App < Sinatra::Base
 
   get "/girls.json" do
     # convert to plain Hash
-    girls = Precure.all.map{ |g| Hash[g] }
+    girls = Precure.all.map { |g| Hash[g] }
 
     json girls, @json_options
   end
