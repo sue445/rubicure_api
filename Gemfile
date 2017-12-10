@@ -15,6 +15,7 @@ gem "slim"
 
 group :development do
   gem "foreman", require: false
+  gem "onkcop", require: false
   gem "rake", require: false
 end
 
