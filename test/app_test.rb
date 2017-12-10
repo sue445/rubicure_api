@@ -28,7 +28,7 @@ class AppTest < Test::Unit::TestCase
     first = all_series.first
 
     %w[series_name title started_date ended_date girls].each do |key|
-      assert { first.key?(key) }
+      assert { first.has_key?(key) }
     end
   end
 
