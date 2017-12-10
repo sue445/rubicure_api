@@ -14,8 +14,8 @@ gem "sinatra-contrib"
 gem "slim"
 
 group :development do
-  gem "foreman"
-  gem "rake"
+  gem "foreman", require: false
+  gem "rake", require: false
 end
 
 group :test do
