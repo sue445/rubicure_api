@@ -79,7 +79,7 @@ class App < Sinatra::Base
     @json_options[:json_encoder] = :to_pretty_json if params[:format] == "pretty"
   end
 
-  helpers do
+  helpers do # rubocop:disable Metrics/BlockLength
     def girl_birthdays(from_year, to_year)
       date_girls = {}
       girls = Precure.all.select(&:have_birthday?)
