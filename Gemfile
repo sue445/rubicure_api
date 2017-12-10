@@ -20,7 +20,7 @@ group :development do
 end
 
 group :test do
-  gem "test-unit"
   gem "rack-test"
+  gem "test-unit"
   gem "timecop"
 end
