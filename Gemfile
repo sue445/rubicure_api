@@ -7,6 +7,7 @@ gem "holiday_jp"
 gem "icalendar"
 gem "jemalloc", require: false
 gem "puma"
+gem "puma-heroku"
 gem "rollbar"
 gem "rubicure"
 gem "sinatra"

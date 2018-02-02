@@ -29,6 +29,8 @@ GEM
     power_assert (1.1.1)
     powerpack (0.1.1)
     puma (3.11.2)
+    puma-heroku (1.0.0)
+      puma (~> 3.0)
     rack (2.0.3)
     rack-protection (2.0.0)
       rack
@@ -90,6 +92,7 @@ DEPENDENCIES
   jemalloc
   onkcop
   puma
+  puma-heroku
   rack-test
   rake
   rollbar
@@ -100,5 +103,8 @@ DEPENDENCIES
   test-unit
   timecop
 
+RUBY VERSION
+   ruby 2.5.0p0
+
 BUNDLED WITH
-   1.16.0
+   1.16.1
