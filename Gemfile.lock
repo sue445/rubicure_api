@@ -13,7 +13,7 @@ GEM
       thor (~> 0.19.1)
     hashie (3.5.7)
     holiday_jp (0.6.1)
-    i18n (0.9.3)
+    i18n (0.9.4)
       concurrent-ruby (~> 1.0)
     icalendar (2.4.1)
     jemalloc (1.0.1)
