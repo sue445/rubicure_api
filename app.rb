@@ -29,14 +29,14 @@ class App < Sinatra::Base
     @series = Precure.map(&:itself)
 
     date_girls = girl_birthdays(Date.today.year, Date.today.year + 1)
-    @date_girls = date_girls.select { |date, _| Date.today <= date && date <= Date.today + 90 }
+    @date_girls = date_girls.select {|date, _| Date.today <= date && date <= Date.today + 90 }
 
     slim :index
   end
 
   get "/series.json" do
     # convert to plain Hash
-    all_series = Precure.map { |s| Hash[s] }
+    all_series = Precure.map {|s| Hash[s] }
 
     json all_series, @json_options
   end
@@ -53,7 +53,7 @@ class App < Sinatra::Base
 
   get "/girls.json" do
     # convert to plain Hash
-    girls = Precure.all.map { |g| Hash[g] }
+    girls = Precure.all.map {|g| Hash[g] }
 
     json girls, @json_options
   end
