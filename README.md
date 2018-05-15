@@ -4,7 +4,6 @@ API server for [Rubicure](https://github.com/sue445/rubicure)
 https://rubicure.herokuapp.com/
 
 [![Circle CI](https://circleci.com/gh/sue445/rubicure_api.svg?style=svg)](https://circleci.com/gh/sue445/rubicure_api)
-[![Dependency Status](https://gemnasium.com/sue445/rubicure_api.svg)](https://gemnasium.com/sue445/rubicure_api)
 
 ## Requirements
 * Ruby 2.4.1
