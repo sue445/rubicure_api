@@ -6,7 +6,7 @@ https://rubicure.herokuapp.com/
 [![Circle CI](https://circleci.com/gh/sue445/rubicure_api.svg?style=svg)](https://circleci.com/gh/sue445/rubicure_api)
 
 ## Requirements
-* Ruby 2.4.1
+* Ruby
 
 ## Setup
 ```sh
