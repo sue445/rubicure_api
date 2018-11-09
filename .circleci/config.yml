@@ -1,61 +1,35 @@
-version: 2.0
+version: 2.1
 
-default: &default
-  docker:
-    - image: circleci/ruby:2.5.3
-      environment:
-        RACK_ENV: test
-  working_directory: ~/app
+orbs:
+  ruby-orbs: sue445/ruby-orbs@volatile
+  heroku:    circleci/heroku@0.0.2
 
-save_bundle_cache_option: &save_bundle_cache_option
-  key: v1-bundle-{{ checksum "Gemfile.lock" }}
-  paths:
-    - ~/app/vendor/bundle
-
-restore_bundle_cache_option: &restore_bundle_cache_option
-  keys:
-    - v1-bundle-{{ checksum "Gemfile.lock" }}
-    - v1-bundle
+executors:
+  default:
+    docker:
+      - image: circleci/ruby:2.5.3
+        environment:
+          RACK_ENV: test
+    working_directory: ~/app
 
 jobs:
   rspec:
-    <<: *default
+    executor:
+      name: default
 
     steps:
       - checkout
-      - restore_cache:
-          <<: *restore_bundle_cache_option
-      - run: ./.circleci/setup_bundle.sh
-      - save_cache:
-          <<: *save_bundle_cache_option
-
+      - ruby-orbs/bundle-install
       - run: bundle exec rake test
 
   rubocop:
-    <<: *default
+    executor:
+      name: default
 
     steps:
       - checkout
-      - restore_cache:
-          <<: *restore_bundle_cache_option
-      - run: ./.circleci/setup_bundle.sh
-      - save_cache:
-          <<: *save_bundle_cache_option
-
+      - ruby-orbs/bundle-install
       - run: bundle exec rubocop
-
-  deploy:
-    docker:
-      - image: sue445/heroku-cli
-    working_directory: /home/circleci/app
-
-    steps:
-      - checkout
-      - run: .circleci/heroku_setup.sh
-      - add_ssh_keys:
-          fingerprints:
-            - "b3:c5:19:97:09:2e:dd:7e:dd:9d:05:c3:8b:2e:9f:54"
-      - run: .circleci/heroku_deploy.sh
 
 workflows:
   version: 2
@@ -64,7 +38,9 @@ workflows:
     jobs:
       - rspec
       - rubocop
-      - deploy:
+      - heroku/deploy-via-git:
+          pre-deploy:
+            - run: heroku config:add BUNDLE_WITHOUT="test:development" --app $HEROKU_APP_NAME
           context: Heroku
           requires:
             - rspec
