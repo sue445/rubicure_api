@@ -2,12 +2,6 @@
   "name": "RubicureAPI",
   "description": "API server for Rubicure",
   "keywords": ["ruby", "Precure", "PrettyCure", "rubicure"],
-  "env": {
-    "BUNDLE_WITHOUT": {
-      "description": "bundle install --without <these>",
-      "value": "test:development"
-    }
-  },
   "addons": [
     "rollbar",
     "papertrail"
