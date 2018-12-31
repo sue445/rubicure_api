@@ -5,7 +5,6 @@ ruby "2.6.0"
 gem "activesupport"
 gem "holiday_jp"
 gem "icalendar"
-gem "jemalloc", require: false
 gem "puma"
 gem "puma-heroku"
 gem "rollbar"

@@ -19,7 +19,6 @@ GEM
       ice_cube (~> 0.16)
     ice_cube (0.16.3)
     jaro_winkler (1.5.1)
-    jemalloc (1.0.1)
     minitest (5.11.3)
     multi_json (1.13.1)
     mustermann (1.0.3)
@@ -94,7 +93,6 @@ DEPENDENCIES
   foreman
   holiday_jp
   icalendar
-  jemalloc
   onkcop
   puma
   puma-heroku
@@ -109,4 +107,4 @@ DEPENDENCIES
   timecop
 
 BUNDLED WITH
-   1.16.1
+   1.17.2
