@@ -40,11 +40,11 @@ workflows:
     jobs:
       - rspec
       - rubocop
-      - heroku/deploy-via-git:
-          context: Heroku
-          requires:
-            - rspec
-            - rubocop
-          filters:
-            branches:
-              only: master
+#       - heroku/deploy-via-git:
+#           context: Heroku
+#           requires:
+#             - rspec
+#             - rubocop
+#           filters:
+#             branches:
+#               only: master
