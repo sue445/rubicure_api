@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/sue445/onkcop.git
+  revision: 6256494c1f860f62df6a4d57c81a4c200beee53b
+  branch: rubocop_0.68.0
+  specs:
+    onkcop (0.53.0.3)
+      rubocop (>= 0.53.0)
+      rubocop-rspec (>= 1.24.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -22,9 +31,6 @@ GEM
     minitest (5.11.3)
     multi_json (1.13.1)
     mustermann (1.0.3)
-    onkcop (0.53.0.3)
-      rubocop (>= 0.53.0)
-      rubocop-rspec (>= 1.24.0)
     parallel (1.17.0)
     parser (2.6.3.0)
       ast (~> 2.4.0)
@@ -56,7 +62,7 @@ GEM
       unicode-display_width (>= 1.4.0, < 1.6)
     rubocop-performance (1.1.0)
       rubocop (>= 0.67.0)
-    rubocop-rspec (1.32.0)
+    rubocop-rspec (1.33.0)
       rubocop (>= 0.60.0)
     ruby-progressbar (1.10.0)
     sengiri_yaml (0.0.3)
@@ -95,7 +101,7 @@ DEPENDENCIES
   foreman
   holiday_jp
   icalendar
-  onkcop
+  onkcop!
   puma
   puma-heroku
   rack-test
@@ -108,6 +114,9 @@ DEPENDENCIES
   slim
   test-unit
   timecop
+
+RUBY VERSION
+   ruby 2.6.3p62
 
 BUNDLED WITH
    1.17.2
