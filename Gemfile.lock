@@ -47,7 +47,7 @@ GEM
     rake (12.3.2)
     rollbar (2.20.2)
       multi_json
-    rubicure (1.2.3)
+    rubicure (1.2.4)
       activesupport (>= 5.0.0)
       hashie (>= 2.0.5)
       sengiri_yaml (>= 0.0.2)
