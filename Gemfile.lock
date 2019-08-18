@@ -46,7 +46,7 @@ GEM
     rainbow (3.0.0)
     rake (12.3.3)
     rollbar (2.21.0)
-    rubicure (1.2.4)
+    rubicure (1.2.5)
       activesupport (>= 5.0.0)
       hashie (>= 2.0.5)
       sengiri_yaml (>= 0.0.2)
