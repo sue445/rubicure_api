@@ -22,7 +22,7 @@ group :development do
   # * https://github.com/onk/onkcop/pull/63
   # * https://github.com/onk/onkcop/pull/65
   # gem "onkcop", ">= 0.53.0.3", require: false
-  gem "onkcop", require: false, github: "sue445/onkcop", branch: "rubocop_0.77.0"
+  gem "onkcop", require: false, github: "sue445/onkcop", branch: "develop"
 
   gem "rake", require: false
   gem "rubocop-performance", require: false
