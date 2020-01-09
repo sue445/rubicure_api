@@ -22,7 +22,7 @@ GEM
     foreman (0.87.0)
     hashie (4.0.0)
     holiday_jp (0.7.1)
-    i18n (1.7.1)
+    i18n (1.8.1)
       concurrent-ruby (~> 1.0)
     icalendar (2.6.1)
       ice_cube (~> 0.16)
