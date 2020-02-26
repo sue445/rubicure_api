@@ -34,7 +34,7 @@ GEM
       ruby2_keywords (~> 0.0.1)
     nio4r (2.5.2)
     parallel (1.19.1)
-    parser (2.7.0.2)
+    parser (2.7.0.3)
       ast (~> 2.4.0)
     power_assert (1.1.6)
     puma (4.3.1)
