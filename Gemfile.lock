@@ -19,7 +19,7 @@ GEM
     ast (2.4.1)
     backports (3.18.1)
     concurrent-ruby (1.1.6)
-    foreman (0.87.1)
+    foreman (0.87.2)
     hashie (4.1.0)
     holiday_jp (0.7.1)
     i18n (1.8.5)
