@@ -21,7 +21,7 @@ GEM
     concurrent-ruby (1.1.7)
     foreman (0.87.2)
     hashie (4.1.0)
-    holiday_jp (0.7.1)
+    holiday_jp (0.8.0)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     icalendar (2.7.0)
