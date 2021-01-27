@@ -17,7 +17,7 @@ GEM
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
     ast (2.4.2)
-    backports (3.20.1)
+    backports (3.20.2)
     concurrent-ruby (1.1.8)
     foreman (0.87.2)
     hashie (4.1.0)
