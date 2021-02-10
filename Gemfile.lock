@@ -93,7 +93,7 @@ GEM
     test-unit (3.4.0)
       power_assert
     tilt (2.0.10)
-    timecop (0.9.3)
+    timecop (0.9.4)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.0.0)
